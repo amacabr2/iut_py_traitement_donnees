@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageOps
 from math import *
 
 
@@ -35,38 +35,71 @@ def augmentation_contraste(x):
     return int(127 + 127 * r3((x - 127) / 127))
 
 
+def mise_en_val_color(x):
+    return x + 100
+
+
+def gris():
+    """(ligne, colonne) = im.size
+    for i in range(colonne):
+        for j in range(ligne):
+            pixel = im.getpixel((j, i))  # récupération du pixel
+            # calcul du poids de chaque composante du gris dans le pixel (CIE709)
+            gris = int(0.2125 * pixel[0] + 0.7154 * pixel[1] + 0.0721 * pixel[2])
+            # gris = int(0.33 * pixel[0] + 0.33 * pixel[1] + 0.33 * pixel[2])
+            p = (gris, gris, gris)
+            # composition de la nouvelle image
+            im.putpixel((j, i), p)"""
+    return ImageOps.grayscale(im)
+
+
 def choix():
     """Demande à l'utilisateur de faire un choix"""
     while True:
         print("Tu as le choix en entre")
+        print("\t - vision originale (0)")
         print("\t - vision négative (1)")
         print("\t - assombrissement (2)")
         print("\t - écraircissement (3)")
         print("\t - diminution contraste (4)")
         print("\t - augmentation contraste (5)")
+        print("\t - mise en valeur du rouge (6)")
+        print("\t - mise en valeur du vert (7)")
+        print("\t - mise en valeur du bleu (8)")
+        print("\t - mise en valeur du bleu (9)")
         choix = int(input("Alors ton choix : "))
-        if 5 >= choix >= 1:
+        if choix >= 0 and choix <= 9:
             return choix
 
 
 """====================================================Main=========================================================="""
 
-toto = Image.open('img/joconde.jpg', 'r')
+im = Image.open('img/joconde.jpg', 'r')
 choix = choix()
 
-for k in range(toto.size[0]):
-    for l in range(toto.size[1]):
-        X = toto.getpixel((k, l))
-        if choix == 1:
-            toto.putpixel((k, l), (negat(X[0]), negat(X[1]), negat(X[2])))
+for k in range(im.size[0]):
+    for l in range(im.size[1]):
+        X = im.getpixel((k, l))
+        if choix == 0:
+            break
+        elif choix == 1:
+            im.putpixel((k, l), (negat(X[0]), negat(X[1]), negat(X[2])))
         elif choix == 2:
-            toto.putpixel((k, l), (assombrissement(X[0]), assombrissement(X[1]), assombrissement(X[2])))
+            im.putpixel((k, l), (assombrissement(X[0]), assombrissement(X[1]), assombrissement(X[2])))
         elif choix == 3:
-            toto.putpixel((k, l), (eclaircissement(X[0]), eclaircissement(X[1]), eclaircissement(X[2])))
+            im.putpixel((k, l), (eclaircissement(X[0]), eclaircissement(X[1]), eclaircissement(X[2])))
         elif choix == 4:
-            toto.putpixel((k, l), (diminution_contraste(X[0]), diminution_contraste(X[1]), diminution_contraste(X[2])))
+            im.putpixel((k, l), (diminution_contraste(X[0]), diminution_contraste(X[1]), diminution_contraste(X[2])))
         elif choix == 5:
-            toto.putpixel((k, l), (augmentation_contraste(X[0]), augmentation_contraste(X[1]), augmentation_contraste(X[2])))
+            im.putpixel((k, l),
+                        (augmentation_contraste(X[0]), augmentation_contraste(X[1]), augmentation_contraste(X[2])))
+        elif choix == 6:
+            im.putpixel((k, l), (mise_en_val_color(X[0]), X[1], X[2]))
+        elif choix == 7:
+            im.putpixel((k, l), (X[0], mise_en_val_color(X[1]), X[2]))
+        elif choix == 8:
+            im.putpixel((k, l), (X[0], X[1], mise_en_val_color(X[2])))
+        elif choix == 9:
+            im = gris()
 
-toto.show()
-
+im.show()
