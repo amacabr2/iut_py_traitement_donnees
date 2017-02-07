@@ -40,16 +40,7 @@ def mise_en_val_color(x):
 
 
 def gris():
-    """(ligne, colonne) = im.size
-    for i in range(colonne):
-        for j in range(ligne):
-            pixel = im.getpixel((j, i))  # récupération du pixel
-            # calcul du poids de chaque composante du gris dans le pixel (CIE709)
-            gris = int(0.2125 * pixel[0] + 0.7154 * pixel[1] + 0.0721 * pixel[2])
-            # gris = int(0.33 * pixel[0] + 0.33 * pixel[1] + 0.33 * pixel[2])
-            p = (gris, gris, gris)
-            # composition de la nouvelle image
-            im.putpixel((j, i), p)"""
+    """Met l'image en noir et blanc"""
     return ImageOps.grayscale(im)
 
 
@@ -91,8 +82,7 @@ for k in range(im.size[0]):
         elif choix == 4:
             im.putpixel((k, l), (diminution_contraste(X[0]), diminution_contraste(X[1]), diminution_contraste(X[2])))
         elif choix == 5:
-            im.putpixel((k, l),
-                        (augmentation_contraste(X[0]), augmentation_contraste(X[1]), augmentation_contraste(X[2])))
+            im.putpixel((k, l), (augmentation_contraste(X[0]), augmentation_contraste(X[1]), augmentation_contraste(X[2])))
         elif choix == 6:
             im.putpixel((k, l), (mise_en_val_color(X[0]), X[1], X[2]))
         elif choix == 7:
