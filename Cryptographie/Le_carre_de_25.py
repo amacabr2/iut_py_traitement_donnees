@@ -92,5 +92,45 @@ def newGrille():
                     break
 
 
-newGrille()
-print(dechiffrement(chiffrement('Anthony')))
+FREQUENCE_APPARITION_LETTRES_FR = [
+    ['E', 0.173], ['A', 0.084], ['S', 0.081], ['I', 0.073], ['N', 0.071], ['T', 0.071],
+    ['R', 0.066], ['L', 0.06], ['U', 0.057], ['O', 0.053], ['D', 0.042], ['C', 0.03],
+    ['M', 0.03], ['P', 0.03], ['G', 0.013], ['V', 0.013], ['B', 0.011], ['F', 0.011],
+    ['Q', 0.01], ['H', 0.009], ['X', 0.004], ['J', 0.003], ['Y', 0.003], ['K', 0.001],
+    ['W', 0.001], ['Z', 0.001]
+]
+
+
+def casseCode(message):
+    tab_message = stringToTab2Nb(message)
+    tab_char = []
+    tab_count = []
+    for char in tab_message:
+        present = False
+        for i in range(len(tab_char)):
+            if char == tab_char[i]:
+                tab_count[i] += 1
+                present = True
+                break
+        if not present:
+            tab_char.append(char)
+            tab_count.append(1)
+    tab_freq = []
+    for nb in tab_count:
+        tab_freq.append(nb / len(tab_message))
+    messageDecoder = ""
+    for char in tab_message:
+        for i in range(len(tab_char)):
+            if char == tab_char[i]:
+                if tab_freq[i] >= FREQUENCE_APPARITION_LETTRES_FR[0][1]:
+                    messageDecoder += FREQUENCE_APPARITION_LETTRES_FR[0][0]
+                elif tab_freq[i] <= FREQUENCE_APPARITION_LETTRES_FR[len(FREQUENCE_APPARITION_LETTRES_FR) - 1][1]:
+                    messageDecoder += FREQUENCE_APPARITION_LETTRES_FR[len(FREQUENCE_APPARITION_LETTRES_FR) - 1][0]
+                else:
+                    for j in range(len(FREQUENCE_APPARITION_LETTRES_FR)):
+                        if tab_freq[i] <= FREQUENCE_APPARITION_LETTRES_FR[j][1]:
+                            messageDecoder += FREQUENCE_APPARITION_LETTRES_FR[j][0]
+    return messageDecoder
+
+
+print(casseCode("3215133514151415413532541215"))
