@@ -2,7 +2,7 @@ from Cryptographie.Le_carre_de_25 import stringToCharTab, charTabtoString
 import random
 
 
-def transposition():
+def transposition_random():
     """chiffrement par transposition"""
     tabNewPosition = []  # Enregistre la nouvelle position de la lettre pour ne pas mettre une nouvelle lettre là où il y en a déjà
     tabChar = stringToCharTab(phrase) # Phrase transformé en tableau de caractères
@@ -26,5 +26,24 @@ def transposition():
     return charTabtoString(tabNewChar)
 
 
+def transposition_fixe(decal):
+    """Chiffrement par transposition selon le tp"""
+    tabChar = stringToCharTab(phrase)
+    tabNewChar = []  # Nouvelle phrase
+    # Donner la bonne taille au tableau
+    for k in range(len(tabChar)):
+        tabNewChar.append("A")
+    print("tabChar : " + str(len(tabChar)) + ", tabNewChar: " + str(len(tabNewChar)))
+    for i in range(len(tabChar)):
+        num = i + 5
+        print("Ancienne position : " + str(i) + ", nouvelle position : " + str(num))
+        if num >= len(tabChar):
+            print("num : " + str(num))
+            num -= len(tabChar)
+        tabNewChar[num] = tabChar[i]
+    return charTabtoString(tabNewChar)
+
+
 phrase = "Bonjour tout le monde"
-print(transposition())
+# print(transposition_random())
+print(transposition_fixe(5))
