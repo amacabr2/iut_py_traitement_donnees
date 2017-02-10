@@ -12,3 +12,13 @@ def cribleDEratosthene(n):
                 nombres.remove(nb)
 
     return nombres
+
+
+def nbPremiersJumeaux(nbPremiers):
+    lNbPremiersJumeaux = []
+    i = 0
+    for j in range(1, len(nbPremiers)):
+        if nbPremiers[i] + 2 == nbPremiers[j]:
+            lNbPremiersJumeaux.append([nbPremiers[i], nbPremiers[j]])
+        i += 1
+    return lNbPremiersJumeaux
