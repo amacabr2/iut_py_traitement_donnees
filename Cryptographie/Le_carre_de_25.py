@@ -131,6 +131,3 @@ def casseCode(message):
                         if tab_freq[i] <= FREQUENCE_APPARITION_LETTRES_FR[j][1]:
                             messageDecoder += FREQUENCE_APPARITION_LETTRES_FR[j][0]
     return messageDecoder
-
-
-print(casseCode("3215133514151415413532541215"))
