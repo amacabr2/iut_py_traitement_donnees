@@ -25,7 +25,7 @@ def stringToCharTab(string):
 def charTabtoString(tabChar):
     string = ""
     for char in tabChar:
-        string += char
+        string += char.upper()
     return string
 
 
