@@ -20,4 +20,4 @@ def permutationVoulu():
     return int(input("Choisissez la permutation pour le code de césar ouvre tp : ")) % 26
 
 ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-# print(codeCesar("Angeline", permutationVoulu()))
+print(codeCesar("Angeline", permutationVoulu()))
