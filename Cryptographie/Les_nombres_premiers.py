@@ -8,7 +8,7 @@ def cribleDEratosthene(n):
     nombres = list(range(2, n))
     for i in range(2, int(sqrt(n))):
         for nb in nombres:
-            if nb % i == 0:
+            if nb % i == 0 and nb != i:
                 nombres.remove(nb)
 
     return nombres
@@ -53,12 +53,12 @@ def colorArith(nbPremiers):
         i += 1
         j += 1
 
-    print(tabStringPremiers)
     string = ""
     for stringPremier in tabStringPremiers:
-        string += str(stringPremier)
         if str(stringPremier).isdigit():
-            string += "; "
+            string += str(stringPremier) + " ; "
+        else:
+            string += stringPremier + " "
     print(string)
 
 
