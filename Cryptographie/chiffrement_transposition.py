@@ -44,6 +44,18 @@ def transposition_fixe(decal):
     return charTabtoString(tabNewChar)
 
 
+def transposition_bloc():
+    n = int(input("Quelle taille pour les blocs ? "))
+    key = list(range(n))
+    random.shuffle(key)
+    print("La clé est :", key)
+    message = input("Quel message chiffrer ? ")
+    blocs = [message[n * k:n * (k + 1)] for k in range(int(len(message) / n))]
+    crypto = [[blocs[k][u] for u in key] for k in range(len(blocs))]
+    print("Cryptogramme :", ''.join(sum(crypto, [])))
+
+
 phrase = "Bonjour tout le monde"
-# print(transposition_random())
+print(transposition_random())
 print(transposition_fixe(5))
+transposition_bloc()
