@@ -33,3 +33,6 @@ def transformeTexteToLargonjem(text):
             text_crypte += mot
         text_crypte += " "
     return text_crypte
+
+if __name__ == '__main__':
+    print(transformeTexteToLargonjem("bonjour à tous je suis enchanté"))

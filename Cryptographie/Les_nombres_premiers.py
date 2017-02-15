@@ -61,5 +61,5 @@ def colorArith(nbPremiers):
             string += stringPremier + " "
     print(string)
 
-
-colorArith(cribleDEratosthene(100))
+if __name__ == '__main__':
+    colorArith(cribleDEratosthene(100))

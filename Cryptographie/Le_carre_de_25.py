@@ -131,3 +131,16 @@ def casseCode(message):
                         if tab_freq[i] <= FREQUENCE_APPARITION_LETTRES_FR[j][1]:
                             messageDecoder += FREQUENCE_APPARITION_LETTRES_FR[j][0]
     return messageDecoder
+
+if __name__ == '__main__':
+    print("phrase de départ : 'Bonjour tout le monde'")
+    print("chiffrement :")
+    print(chiffrement("Bonjour tout le monde"))
+    print("dechiffrement :")
+    print(dechiffrement("123534253551434535514532153335341415"))
+    print("nouvelle grille :")
+    newGrille()
+    print("chiffrement et déchiffrement avec la nouvelle grille")
+    ch = chiffrement("Bonjour tout le monde")
+    print(ch)
+    print(dechiffrement(ch))

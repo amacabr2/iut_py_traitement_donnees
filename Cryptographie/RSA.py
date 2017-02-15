@@ -20,5 +20,5 @@ def clef(P1, P2):
         (r, u, v) = bezout(c, (P1 - 1) * (P2 - 1))
     return [(n, c), u]
 
-
-print(clef(5, 7))
+if __name__ == '__main__':
+    print(clef(5, 7))

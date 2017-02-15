@@ -31,4 +31,6 @@ def permutationVoulu():
 
 
 ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-print(codeCesar("Angeline", permutationVoulu()))
+
+if __name__ == '__main__':
+    print(codeCesar("Angeline", permutationVoulu()))

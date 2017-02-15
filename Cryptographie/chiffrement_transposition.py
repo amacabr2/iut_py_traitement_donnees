@@ -52,11 +52,11 @@ def transposition_bloc():
     crypto = [[blocs[k][u] for u in key] for k in range(len(blocs))]
     print("Cryptogramme :", ''.join(sum(crypto, [])))
 
-
-phrase = "Bonjour tout le monde"
-print("Transposition random ==========================================================================================")
-print(transposition_random())
-print("Transposition fixe ==========================================================================================")
-print(transposition_fixe(5))
-print("Transposition bloc ==========================================================================================")
-transposition_bloc()
+if __name__ == '__main__':
+    phrase = "Bonjour tout le monde"
+    print("Transposition random ==========================================================================================")
+    print(transposition_random())
+    print("Transposition fixe ==========================================================================================")
+    print(transposition_fixe(5))
+    print("Transposition bloc ==========================================================================================")
+    transposition_bloc()
