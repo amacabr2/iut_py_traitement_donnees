@@ -33,18 +33,16 @@ def transposition_fixe(decal):
     # Donner la bonne taille au tableau
     for k in range(len(tabChar)):
         tabNewChar.append("A")
-    print("tabChar : " + str(len(tabChar)) + ", tabNewChar: " + str(len(tabNewChar)))
     for i in range(len(tabChar)):
         num = i + 5
-        print("Ancienne position : " + str(i) + ", nouvelle position : " + str(num))
         if num >= len(tabChar):
-            print("num : " + str(num))
             num -= len(tabChar)
         tabNewChar[num] = tabChar[i]
     return charTabtoString(tabNewChar)
 
 
 def transposition_bloc():
+    """Chiffrement par bloc"""
     n = int(input("Quelle taille pour les blocs ? "))
     key = list(range(n))
     random.shuffle(key)
@@ -56,6 +54,9 @@ def transposition_bloc():
 
 
 phrase = "Bonjour tout le monde"
+print("Transposition random ==========================================================================================")
 print(transposition_random())
+print("Transposition fixe ==========================================================================================")
 print(transposition_fixe(5))
+print("Transposition bloc ==========================================================================================")
 transposition_bloc()
