@@ -47,13 +47,11 @@ def rechercheMotDansMatrice():
 def rechercheHorizontale(mot):
     """Fait la recherche du mot en horizontale"""
     for i in range(len(matrice)):
+        motAConstruire = ""
         for j in range(len(matrice[i])):
-            motAConstruire = ""
-            for k in range(len(mot) + 1):
-                if j + k < len(matrice):
-                    motAConstruire += matrice[i][j + k]
-                    if mot.upper() in motAConstruire:
-                        return True
+            motAConstruire += matrice[i][j]
+            if mot.upper() in motAConstruire:
+                return True
     return False
 
 
