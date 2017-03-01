@@ -1,4 +1,5 @@
 from Cryptographie.NombrePremier.Les_nombres_premiers import cribleDEratosthene
+import time
 
 
 def test1AvecCribleEratosthene(n):
@@ -40,24 +41,43 @@ def testWilson(n):
     return False
 
 
+def testChinois(n):
+    if (pow(2, n) - 2) % n == 0:
+        return True
+    return False
+
+
 if __name__ == '__main__':
     try:
+
         print(
             "Vous avez le choix entre le calcul de facteur avec un test de primalite (1), "
-            "savoir si un nombre est premier avec le théorème de Wilson (2)"
+            "savoir si un nombre est premier avec le test de Wilson puis le tet chinois(2)"
         )
         choix = int(input("Faite votre choix : "))
+
         if choix == 1:
             n = int(input("Choisissez un nombre, on va calculer ces facteurs : "))
             print("Les facteurs (avec grille eratosthene) de {0} sont : {1}".format(n, test1AvecCribleEratosthene(n)))
             print("Les facteurs (sans grille eratosthene) de {0} sont : {1}".format(n, test1SansCribleEratosthene(n)))
+
         elif choix == 2:
             n = int(input("Choisissez un nombre est on verra s'il est premier avec le test de Wilson : "))
-            if (testWilson(n)):
-                print("{0} est un nombre premier".format(n))
+            t = time.time()
+            if testWilson(n):
+                print("{0} est un nombre premier selon le test de Wilson".format(n))
             else:
-                print("{0} n'est pas un nombre premier".format(n))
+                print("{0} n'est pas un nombre premier selon le test de Wilson".format(n))
+            print("Tps  éxécution de la fct testWilson : ", time.time() - t)
+            t = time.time()
+            if testChinois(n):
+                print("{0} est un nombre premier selon le test chinoit".format(n))
+            else:
+                print("{0} n'est pas un nombre premier selon le test chinoit".format(n))
+            print("Tps  éxécution de la fct testChinois : ", time.time() - t)
+
         else:
-            print("Il faut faire un choix entre 1, 2 ou 3")
+            print("Il faut faire un choix entre 1, 2")
+
     except ValueError:
         print("Il faut un nombre")
