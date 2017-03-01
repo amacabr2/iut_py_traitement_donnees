@@ -1,4 +1,4 @@
-from Cryptographie.Le_carre_de_25 import stringToCharTab
+from Cryptographie.EnfanceDeLArt.Le_carre_de_25 import stringToCharTab
 
 CARRE_VIGENERE = [
     ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],

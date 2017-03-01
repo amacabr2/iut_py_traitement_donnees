@@ -1,4 +1,4 @@
-from Cryptographie.Le_carre_de_25 import stringToCharTab
+from Cryptographie.EnfanceDeLArt.Le_carre_de_25 import stringToCharTab
 
 
 def codeCesar(phrase, key):
@@ -33,4 +33,5 @@ def permutationVoulu():
 ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 if __name__ == '__main__':
-    print(codeCesar("Angeline", permutationVoulu()))
+    print("Test choisit : Bonjour tout le monde")
+    print(codeCesar("Bonjour tout le monde", permutationVoulu()))

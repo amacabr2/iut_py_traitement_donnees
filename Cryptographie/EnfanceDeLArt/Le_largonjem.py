@@ -1,5 +1,5 @@
-from Cryptographie.Le_carre_de_25 import stringToCharTab, charTabtoString
-from Cryptographie.chiffrement_subtitution import ALPHABET
+from Cryptographie.AgeClassique.chiffrement_subtitution import ALPHABET
+from Cryptographie.EnfanceDeLArt.Le_carre_de_25 import stringToCharTab, charTabtoString
 
 CONSONNES = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z']
 

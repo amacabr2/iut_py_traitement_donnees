@@ -77,7 +77,7 @@ lettreValable = []
 matrice = []
 
 if __name__ == '__main__':
-    t = lireFichier('bible.txt')
+    t = lireFichier('./bible.txt')
     print(t)
     ecartLettre = 1
     try:

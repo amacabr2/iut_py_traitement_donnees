@@ -1,5 +1,6 @@
-from Cryptographie.Le_carre_de_25 import stringToCharTab, charTabtoString
 import random
+
+from Cryptographie.EnfanceDeLArt.Le_carre_de_25 import stringToCharTab, charTabtoString
 
 
 def transposition_random():
