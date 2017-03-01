@@ -4,6 +4,7 @@ from Cryptographie.NombrePremier.Les_nombres_premiers import cribleDEratosthene
 def test1AvecCribleEratosthene(n):
     """trouve les facteurs du nombre n avec les nombres premiers inférieurs à n"""
     crible = cribleDEratosthene(n)
+    print(crible)
     facteurs = []
     for c in crible:
         if n % c == 0:
@@ -23,7 +24,40 @@ def test1SansCribleEratosthene(n):
     return facteurs
 
 
+def fact(n):
+    """Calcul de factorielle"""
+    x = 1
+    for i in range(2, n + 1):
+        x *= i
+    print(x)
+    return x
+
+
+def testWilson(n):
+    """Effectue le test de Wilson pour savoir si un nombre est premier"""
+    if (fact(n - 1) + 1) % n == 0:
+        return True
+    return False
+
+
 if __name__ == '__main__':
-    n = int(input("Choisissez un nombre et on va calculer ces facteurs : "))
-    print("Les facteurs (avec grille eratosthene) de {0} sont : {1}".format(n, test1AvecCribleEratosthene(n)))
-    print("Les facteurs (sans grille eratosthene) de {0} sont : {1}".format(n, test1SansCribleEratosthene(n)))
+    try:
+        print(
+            "Vous avez le choix entre le calcul de facteur avec un test de primalite (1), "
+            "savoir si un nombre est premier avec le théorème de Wilson (2)"
+        )
+        choix = int(input("Faite votre choix : "))
+        if choix == 1:
+            n = int(input("Choisissez un nombre, on va calculer ces facteurs : "))
+            print("Les facteurs (avec grille eratosthene) de {0} sont : {1}".format(n, test1AvecCribleEratosthene(n)))
+            print("Les facteurs (sans grille eratosthene) de {0} sont : {1}".format(n, test1SansCribleEratosthene(n)))
+        elif choix == 2:
+            n = int(input("Choisissez un nombre est on verra s'il est premier avec le test de Wilson : "))
+            if (testWilson(n)):
+                print("{0} est un nombre premier".format(n))
+            else:
+                print("{0} n'est pas un nombre premier".format(n))
+        else:
+            print("Il faut faire un choix entre 1, 2 ou 3")
+    except ValueError:
+        print("Il faut un nombre")
