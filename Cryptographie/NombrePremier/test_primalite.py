@@ -59,6 +59,7 @@ def testPetitThFermat(n):
 
 
 def getNbrPremierEntreNetDoubleN(n):
+    """Cherche le 1er nombre premier entre n et 2n"""
     for i in range(n, 2 * n + 1):
         listA = [2, 3, 5, 7]
         pseudoPremierEnA = []
