@@ -58,13 +58,27 @@ def testPetitThFermat(n):
     return pseudoPremierEnA
 
 
+def getNbrPremierEntreNetDoubleN(n):
+    for i in range(n, 2 * n + 1):
+        listA = [2, 3, 5, 7]
+        pseudoPremierEnA = []
+        for a in listA:
+            if i == a:
+                return i
+            if (pow(a, i) - a) % i == 0:
+                pseudoPremierEnA.append(a)
+                if len(pseudoPremierEnA) == 4:
+                    return i
+
+
 if __name__ == '__main__':
     try:
 
         print(
-            "Vous avez le choix entre le calcul de facteur avec un test de primalite (1), "
-            "savoir si un nombre est premier avec le test de Wilson puis le test chinois (2) "
-            "ou le test avec le petit théorème de Fermat (3)"
+            "Vous avez le choix entre le calcul de facteur avec un test de primalite (1), \n"
+            "savoir si un nombre est premier avec le test de Wilson puis le test chinois (2)\n "
+            "le test avec le petit théorème de Fermat (3)\n"
+            "ou chercher un nombre premier entre un nombre que vous aurez choisit et son double (4)\n"
         )
         choix = int(input("Faite votre choix : "))
 
@@ -95,8 +109,13 @@ if __name__ == '__main__':
             n = int(input("Choisissez un nombre est on verra avec quoi il est pseudo premier : "))
             print("{0} est pseudo-premier avec a = {1}".format(n, testPetitThFermat(n)))
 
+        elif choix == 4:
+            n = int(input("Donner un nombre on va chercher un nombre premier entre ce nombre et son double : "))
+            print("Entre {0} et {1} nous avons comme premier nombre premier {2}"
+                  .format(n, n * 2, getNbrPremierEntreNetDoubleN(n)))
+
         else:
-            print("Il faut faire un choix entre 1, 2, 3")
+            print("Il faut faire un choix entre 1, 2, 3, 4")
 
     except ValueError:
         print("Il faut un nombre")
