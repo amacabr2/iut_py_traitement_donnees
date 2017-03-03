@@ -42,9 +42,20 @@ def testWilson(n):
 
 
 def testChinois(n):
+    """Effectue le test chinois pour savoir si un nombre est premier"""
     if (pow(2, n) - 2) % n == 0:
         return True
     return False
+
+
+def testPetitThFermat(n):
+    """Effectue le test du petit théorème de Fermat pour savir si le nombre est pseudo-premier"""
+    listA = [2, 3, 5, 7]
+    pseudoPremierEnA = []
+    for a in listA:
+        if (pow(a, n) - a) % n == 0:
+            pseudoPremierEnA.append(a)
+    return pseudoPremierEnA
 
 
 if __name__ == '__main__':
@@ -52,7 +63,8 @@ if __name__ == '__main__':
 
         print(
             "Vous avez le choix entre le calcul de facteur avec un test de primalite (1), "
-            "savoir si un nombre est premier avec le test de Wilson puis le tet chinois(2)"
+            "savoir si un nombre est premier avec le test de Wilson puis le test chinois (2) "
+            "ou le test avec le petit théorème de Fermat (3)"
         )
         choix = int(input("Faite votre choix : "))
 
@@ -62,13 +74,16 @@ if __name__ == '__main__':
             print("Les facteurs (sans grille eratosthene) de {0} sont : {1}".format(n, test1SansCribleEratosthene(n)))
 
         elif choix == 2:
-            n = int(input("Choisissez un nombre est on verra s'il est premier avec le test de Wilson : "))
+
+            n = int(input("Choisissez un nombre est on verra s'il est premier : "))
+
             t = time.time()
             if testWilson(n):
                 print("{0} est un nombre premier selon le test de Wilson".format(n))
             else:
                 print("{0} n'est pas un nombre premier selon le test de Wilson".format(n))
             print("Tps  éxécution de la fct testWilson : ", time.time() - t)
+
             t = time.time()
             if testChinois(n):
                 print("{0} est un nombre premier selon le test chinoit".format(n))
@@ -76,8 +91,12 @@ if __name__ == '__main__':
                 print("{0} n'est pas un nombre premier selon le test chinoit".format(n))
             print("Tps  éxécution de la fct testChinois : ", time.time() - t)
 
+        elif choix == 3:
+            n = int(input("Choisissez un nombre est on verra avec quoi il est pseudo premier : "))
+            print("{0} est pseudo-premier avec a = {1}".format(n, testPetitThFermat(n)))
+
         else:
-            print("Il faut faire un choix entre 1, 2")
+            print("Il faut faire un choix entre 1, 2, 3")
 
     except ValueError:
         print("Il faut un nombre")
