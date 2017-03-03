@@ -76,7 +76,7 @@ if __name__ == '__main__':
     try:
 
         print(
-            "Vous avez le choix entre le calcul de facteur avec un test de primalite (1), \n"
+            "Vous avez le choix entre le calcul de facteur avec un test de primalite (1),\n"
             "savoir si un nombre est premier avec le test de Wilson puis le test chinois (2)\n "
             "le test avec le petit théorème de Fermat (3)\n"
             "ou chercher un nombre premier entre un nombre que vous aurez choisit et son double (4)\n"
