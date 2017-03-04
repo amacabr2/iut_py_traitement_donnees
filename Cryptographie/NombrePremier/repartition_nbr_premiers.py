@@ -29,6 +29,6 @@ def show_spiral(n, symbol='# ', start=1, space=None):
         print(''.join(cell_str(v) for v in [cell(n, x, y, start) for x in range(n)]))
     print()
 
-
-show_spiral(10, symbol=u'♞', space=u'♘')
-show_spiral(9, symbol='', space=' - ')
+if __name__ == '__main__':
+    show_spiral(10, symbol=u'♞', space=u'♘')
+    show_spiral(9, symbol='', space=' - ')
