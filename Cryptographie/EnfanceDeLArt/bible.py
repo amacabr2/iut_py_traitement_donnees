@@ -60,9 +60,6 @@ def rechercheVerticale(mot):
     i, j, k = 0, 0, 0
     motAConstruire = ""
     while j < len(matrice[0]):
-        print("i = ", str(i))
-        print("j = ", str(j))
-        # print("")
         try:
             motAConstruire += matrice[i][j]
             print(motAConstruire)
