@@ -57,18 +57,19 @@ def rechercheHorizontale(mot):
 
 def rechercheVerticale(mot):
     """Fait la recherche à la verticale"""
-    i, j = 0, 0
+    i, j, k = 0, 0, 0
     motAConstruire = ""
-    print(len(matrice[i]))
-    while j < len(matrice[i]):
-        print()
+    while j < len(matrice[0]):
         print("i = ", str(i))
-        if i + 1 < len(matrice):
+        print("j = ", str(j))
+        # print("")
+        try:
             motAConstruire += matrice[i][j]
+            print(motAConstruire)
             if mot.upper() in motAConstruire:
                 return True
             i += 1
-        else:
+        except IndexError:
             i = 0
             j += 1
     return False
