@@ -9,7 +9,7 @@ def lireFichier(file):
 
 
 def recupLettreValable(text):
-    """Retire les espaces et les carctères tel que '.', ',', ':' etc """
+    """Retire les espaces et les caractères tel que '.', ',', ':' etc """
     for t in text:
         if t != " " and t != "," and t != "'" and t != "-" and t != "." and t != ":" and t != ";" and t != "’":
             lettreValable.append(t.upper())
@@ -59,7 +59,10 @@ def rechercheVerticale(mot):
     """Fait la recherche à la verticale"""
     i, j = 0, 0
     motAConstruire = ""
-    while j < len(matrice):
+    print(len(matrice[i]))
+    while j < len(matrice[i]):
+        print()
+        print("i = ", str(i))
         if i + 1 < len(matrice):
             motAConstruire += matrice[i][j]
             if mot.upper() in motAConstruire:
