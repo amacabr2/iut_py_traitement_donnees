@@ -1,6 +1,7 @@
 from math import sqrt
 
-from Cryptographie.NombrePremier.largeprime import estPremier
+from Cryptographie.NombrePremier.largeprime import estPremier, PREMIERNBRPREMIER
+from Cryptographie.NombrePremier.testProbabilite import testPrimaliteFermat, testPrimaliteMillerRabin
 
 
 def nbrFermat(n):
@@ -14,8 +15,11 @@ def nbrFermat(n):
 def isPremier(tab):
     """Va déterminer si les nombres de Fermat de la liste sont premiers"""
     tabIsPremier = []
+    t = 100
     for nbr in tab:
-        if estPremier(nbr):
+        if nbr in PREMIERNBRPREMIER:
+            tabIsPremier.append(True)
+        elif testPrimaliteFermat(nbr, t) and testPrimaliteMillerRabin(nbr, t):
             tabIsPremier.append(True)
         else:
             tabIsPremier.append(False)
@@ -28,6 +32,6 @@ if __name__ == '__main__':
             "Donner un nombre et on va en déduire la liste des nombres de Fermat (le nombre peut très vite grandir, "
             "n'éxagéré pas): "))
         print("Voici la liste des nombres de Fermat pour {0} : {1}".format(n, nbrFermat(n)))
-        # print("Voici un tableau qui indique si les nombres de la liste sont premier : ", str(isPremier(nbrFermat(n))))
+        print("Voici un tableau qui indique si les nombres de la liste sont premier : ", str(isPremier(nbrFermat(n))))
     except ValueError:
         print("Il faut un nombre")
