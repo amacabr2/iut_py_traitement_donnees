@@ -30,10 +30,21 @@ def pg():
     return (p, g)
 
 
-def calculA(p, g):
-    return pow(g, randint(0, p - 2), p)
+def calculAouB(p, g):
+    aoub = randint(0, p - 2)
+    return (aoub, pow(g, aoub, p))
 
 
-def clefPublique():
-    p, g = pg()
-    return (p, g, calculA(p, g))
+def cles(p, g, a):
+    return ((p, g, g ** a % p), a)
+
+
+def chiffre(message, publique, b):
+    (p, g, A) = publique
+    return (g ** b % p, message * A ** b % p)
+
+
+def dechiffre(cryptogramme, publique, prive):
+    (p, g, A) = publique
+    (B, c) = cryptogramme
+    return B ** (p - 1 - prive) * c % p
