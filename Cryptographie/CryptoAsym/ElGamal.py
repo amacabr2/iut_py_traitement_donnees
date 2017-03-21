@@ -14,14 +14,14 @@ def facteur(n):
 
 
 def pg():
-    p = lg.genererUnNombrePremier(100)
+    p = lg.genererUnNombrePremier(10)
     g = None
     phiP = p - 1
     facteurs = list(facteur(phiP))
     racinePrimitive = True
     for m in facteurs:
         for i in facteurs:
-            if pow(m, phiP / i, p) == 1:
+            if pow(m, int(phiP / i), p) == 1:
                 racinePrimitive = False
                 break
         if racinePrimitive:
