@@ -41,7 +41,7 @@ def cptOccurence(text):
 
 
 def frequence(text):
-    """Va analiser le nombre d'occurence d'une lettre dans le texte et va tenter de casser le code"""
+    """Va analyser le nombre d'occurence d'une lettre dans le texte et va tenter de casser le code"""
     crackCode = ""
     nbrOccurence = cptOccurence(text)
     tabStat = []

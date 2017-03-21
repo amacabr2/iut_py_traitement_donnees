@@ -27,10 +27,10 @@ def transforme():
             newImage.putpixel((x, y), (q0, q1, q2))
     newImage.show()
 
-
-im = Image.open('img/joconde.jpg')
-im.show()
-tabPixel = setup()[0]
-largeur = setup()[1]
-hauteur = setup()[2]
-transforme()
+if __name__ == '__main__':
+    im = Image.open('img/joconde.jpg')
+    im.show()
+    tabPixel = setup()[0]
+    largeur = setup()[1]
+    hauteur = setup()[2]
+    transforme()

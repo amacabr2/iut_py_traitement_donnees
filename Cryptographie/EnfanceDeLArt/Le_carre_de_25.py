@@ -15,6 +15,7 @@ CARRE_POLYBE = initCarrePolybe()
 
 
 def stringToCharTab(string):
+    """La chaine de caractère est split est mis dans un tableau"""
     tabChar = []
     for char in string:
         if char != " ":
@@ -23,6 +24,7 @@ def stringToCharTab(string):
 
 
 def charTabtoString(tabChar):
+    """On prend un tableau de caractère et on en fait un string"""
     string = ""
     for char in tabChar:
         string += char.upper()
@@ -30,6 +32,7 @@ def charTabtoString(tabChar):
 
 
 def chiffrement(message):
+    """Chiffre le message"""
     tab_message = stringToCharTab(message)
     for k in range(len(tab_message)):
         if tab_message[k] == 'W':
@@ -44,6 +47,10 @@ def chiffrement(message):
 
 
 def stringToTab2Nb(string):
+    """
+    Prend une chaine de caractère représentant des chiffres
+    Split la chaine et insère cea dans un tableau
+    """
     tab2Nb = []
     for i in range(len(string)):
         if i % 2 == 0:
@@ -54,6 +61,7 @@ def stringToTab2Nb(string):
 
 
 def dechiffrement(message):
+    """Déchiffre le message"""
     tab_message = stringToTab2Nb(message)
     for k in range(len(tab_message)):
         for i in range(len(CARRE_POLYBE)):
@@ -70,6 +78,7 @@ def dechiffrement(message):
 
 
 def newGrille():
+    """Permet à l'utilisateur de créer son propre carré de Polybe"""
     print("Création de votre grille de chiffrement (grille de 5 x 5 sans W — W = VV).")
     alphabet = []
     for i in range(len(CARRE_POLYBE)):
@@ -102,6 +111,11 @@ FREQUENCE_APPARITION_LETTRES_FR = [
 
 
 def casseCode(message):
+    """
+    Système permettant de casser le chiffrement
+    On compte pour cela la fréquence d'apparition de chaque lettres puis on compare la fréquence avec la fréquence
+    d'apparition des lettres de l'alphabet français
+    """
     tab_message = stringToTab2Nb(message)
     tab_char = []
     tab_count = []

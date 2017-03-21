@@ -44,7 +44,7 @@ def troisiemeDessin():
 
 def ptCercle(a, b, r, x):
     """
-    Retourne la pssition d'un point du cercle
+    Retourne la position d'un point du cercle
     :param a:
     :param b:
     :param r:
@@ -91,9 +91,10 @@ def fourCercle():
     draw.arc((250, 250, 500, 500), 0, 360, fill=300)
     i.show(command='eog')
 
-#premierDessin()
-#deuxiemeDessin()
-#troisiemeDessin()
-#quartCercle()
-#cercle()
-fourCercle()
+if __name__ == '__main__':
+    premierDessin()
+    deuxiemeDessin()
+    troisiemeDessin()
+    quartCercle()
+    cercle()
+    fourCercle()

@@ -43,7 +43,7 @@ def transposition_fixe(decal):
 
 
 def transposition_bloc():
-    """Chiffrement par bloc"""
+    """Chiffrement par bloc: on déplace des blocs de lettres"""
     n = int(input("Quelle taille pour les blocs ? "))
     key = list(range(n))
     random.shuffle(key)

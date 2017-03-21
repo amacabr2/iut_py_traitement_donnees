@@ -15,10 +15,11 @@ def flou_uniforme():
         tuple([0.2 * x for x in pixel[i]])
     print(pixel[0])
 
+if __name__ == '__main__':
 
-joconde = Image.open('img/joconde.jpg')
-(hauteur, largeur) = joconde.size
-pixel = []
-pixel_image()
-flou_uniforme()
-joconde = Image.new(pixel, joconde.size)
+    joconde = Image.open('img/joconde.jpg')
+    (hauteur, largeur) = joconde.size
+    pixel = []
+    pixel_image()
+    flou_uniforme()
+    joconde = Image.new(pixel, joconde.size)

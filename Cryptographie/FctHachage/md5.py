@@ -1,6 +1,7 @@
 from math import sin
 import hashlib
 
+
 def remplirK():
     """Remplit K"""
     # MD5 utilise des sinus d'entiers pour ses constantes
@@ -99,7 +100,8 @@ def myMd5(blocs):
         h2 = h2 + c
         h3 = h3 + d
 
-    return (h0 + h1 + h2 + h3 ) & 0xffffffff
+    return (h0 + h1 + h2 + h3) & 0xffffffff
+
 
 R = [
     [7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22],

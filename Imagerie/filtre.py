@@ -64,32 +64,33 @@ def choix():
 
 
 """====================================================Main=========================================================="""
+if __name__ == '__main__':
 
-im = Image.open('img/joconde.jpg', 'r')
-choix = choix()
+    im = Image.open('img/joconde.jpg', 'r')
+    choix = choix()
 
-for k in range(im.size[0]):
-    for l in range(im.size[1]):
-        X = im.getpixel((k, l))
-        if choix == 0:
-            break
-        elif choix == 1:
-            im.putpixel((k, l), (negat(X[0]), negat(X[1]), negat(X[2])))
-        elif choix == 2:
-            im.putpixel((k, l), (assombrissement(X[0]), assombrissement(X[1]), assombrissement(X[2])))
-        elif choix == 3:
-            im.putpixel((k, l), (eclaircissement(X[0]), eclaircissement(X[1]), eclaircissement(X[2])))
-        elif choix == 4:
-            im.putpixel((k, l), (diminution_contraste(X[0]), diminution_contraste(X[1]), diminution_contraste(X[2])))
-        elif choix == 5:
-            im.putpixel((k, l), (augmentation_contraste(X[0]), augmentation_contraste(X[1]), augmentation_contraste(X[2])))
-        elif choix == 6:
-            im.putpixel((k, l), (mise_en_val_color(X[0]), X[1], X[2]))
-        elif choix == 7:
-            im.putpixel((k, l), (X[0], mise_en_val_color(X[1]), X[2]))
-        elif choix == 8:
-            im.putpixel((k, l), (X[0], X[1], mise_en_val_color(X[2])))
-        elif choix == 9:
-            im = gris()
+    for k in range(im.size[0]):
+        for l in range(im.size[1]):
+            X = im.getpixel((k, l))
+            if choix == 0:
+                break
+            elif choix == 1:
+                im.putpixel((k, l), (negat(X[0]), negat(X[1]), negat(X[2])))
+            elif choix == 2:
+                im.putpixel((k, l), (assombrissement(X[0]), assombrissement(X[1]), assombrissement(X[2])))
+            elif choix == 3:
+                im.putpixel((k, l), (eclaircissement(X[0]), eclaircissement(X[1]), eclaircissement(X[2])))
+            elif choix == 4:
+                im.putpixel((k, l), (diminution_contraste(X[0]), diminution_contraste(X[1]), diminution_contraste(X[2])))
+            elif choix == 5:
+                im.putpixel((k, l), (augmentation_contraste(X[0]), augmentation_contraste(X[1]), augmentation_contraste(X[2])))
+            elif choix == 6:
+                im.putpixel((k, l), (mise_en_val_color(X[0]), X[1], X[2]))
+            elif choix == 7:
+                im.putpixel((k, l), (X[0], mise_en_val_color(X[1]), X[2]))
+            elif choix == 8:
+                im.putpixel((k, l), (X[0], X[1], mise_en_val_color(X[2])))
+            elif choix == 9:
+                im = gris()
 
-im.show()
+    im.show()

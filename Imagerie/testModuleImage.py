@@ -60,7 +60,8 @@ def createVignette(fichier):
 
 
 """Main"""
-fctDeBase()
-manipPixel()
-symetrieImg()
-createVignette(['img/dark_vador.png'])
+if __name__ == '__main__':
+    fctDeBase()
+    manipPixel()
+    symetrieImg()
+    createVignette(['img/dark_vador.png'])

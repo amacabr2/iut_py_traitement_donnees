@@ -5,6 +5,10 @@ CONSONNES = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R
 
 
 def largonjem(message):
+    """
+    Ajoute 'L' devant chaque consonne
+    Ajoute 'EM' après chaque consonne
+    """
     tab_message = stringToCharTab(message)
     tab_message.reverse()
     consonne = tab_message.pop()
@@ -15,15 +19,18 @@ def largonjem(message):
 
 
 def isLargonjemisable(mot):
+    """Regarde si la lettre est une consonne"""
     if mot[0].upper() in CONSONNES:
         return True
     return False
 
 
 def transformeTexteToLargonjem(text):
+    """Applique la transformation de Largonjem sur tout un texte"""
     tab_text = text.split(' ')
     text_crypte = ""
     for mot in tab_text:
+        # On regarde si le caractère est une lettre de l'alphabet
         if mot[0].upper() in ALPHABET:
             if isLargonjemisable(mot):
                 text_crypte += largonjem(mot)
