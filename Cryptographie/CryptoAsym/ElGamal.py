@@ -7,7 +7,7 @@ def facteur(n):
     if n == 1:
         return set([])
     else:
-        for k in range(2, n + 1):
+        for k in range(2, int(n) + 1):
             if n % k == 0:
                 L = facteur(n / k)
                 return L.union([k])
@@ -48,3 +48,12 @@ def dechiffre(cryptogramme, publique, prive):
     (p, g, A) = publique
     (B, c) = cryptogramme
     return B ** (p - 1 - prive) * c % p
+
+
+if __name__ == '__main__':
+    (p, g) = pg()
+    (a, A) = calculAouB(p, g)
+    ((p, g), a) = cles(p, g, A)
+    (b, B) = calculAouB(p, g)
+    (B, c) = chiffre(42, (p, g, A), b)
+    print(dechiffre(c, (p, g, A), a))
