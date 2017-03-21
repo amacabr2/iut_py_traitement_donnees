@@ -14,7 +14,7 @@ def facteur(n):
 
 
 def pg():
-    p = lg.genererUnNombrePremier(10)
+    p = lg.genererUnNombrePremier(2)
     g = None
     phiP = p - 1
     facteurs = list(facteur(phiP))
@@ -47,7 +47,7 @@ def chiffre(message, publique, b):
 def dechiffre(cryptogramme, publique, prive):
     (p, g, A) = publique
     (B, c) = cryptogramme
-    return pow(B, (p - 1 - prive) * c, p)
+    return (pow(B, (p - 1 - prive)) * c) % p
 
 
 if __name__ == '__main__':
