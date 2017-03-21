@@ -36,24 +36,24 @@ def calculAouB(p, g):
 
 
 def cles(p, g, a):
-    return ((p, g, g ** a % p), a)
+    return ((p, g, pow(g, a, p)), a)
 
 
 def chiffre(message, publique, b):
     (p, g, A) = publique
-    return (g ** b % p, message * A ** b % p)
+    return (pow(g, b, p), message * pow(A, b, p))
 
 
 def dechiffre(cryptogramme, publique, prive):
     (p, g, A) = publique
     (B, c) = cryptogramme
-    return B ** (p - 1 - prive) * c % p
+    return pow(B, (p - 1 - prive) * c, p)
 
 
 if __name__ == '__main__':
     (p, g) = pg()
     (a, A) = calculAouB(p, g)
-    ((p, g), a) = cles(p, g, A)
+    ((p, g, A), a) = cles(p, g, A)
     (b, B) = calculAouB(p, g)
     (B, c) = chiffre(42, (p, g, A), b)
-    print(dechiffre(c, (p, g, A), a))
+    print(dechiffre((B, c), (p, g, A), a))
