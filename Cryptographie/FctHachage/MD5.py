@@ -20,9 +20,9 @@ class MD5:
         self.list = LinkedList(None)
         if arg:
             self.list.add(Node(arg, None))
-            self.hash(self.list.toString())
+            self.traiteBlock(self.list.toString())
         else:
-            self.hash(self.list.toString())
+            self.traiteBlock(self.list.toString())
 
     def add0(self, message):
         """Ajoute des 0 tant qu'il le faut"""
@@ -37,6 +37,30 @@ class MD5:
     def rotationLeft(self, n, x):
         """Rotation binaire par la gauche"""
         return (x << n) | (x >> (32 - n))
+
+    def digest(self):
+        res = b''
+        buffers = [self.H0, self.H1, self.H2, self.H3]
+
+        for buffer in buffers:
+            bufferbytes = []
+            b = bin(buffer).replace('b', '0')
+            b = "0" * (34 - len(b)) + b
+
+            bufferbytes.append(int(b[2:10], 2))
+            bufferbytes.append(int(b[10:18], 2))
+            bufferbytes.append(int(b[18:26], 2))
+            bufferbytes.append(int(b[26:34], 2))
+
+            res += bytes([bufferbytes[3]])
+            res += bytes([bufferbytes[2]])
+            res += bytes([bufferbytes[1]])
+            res += bytes([bufferbytes[0]])
+
+            return res
+
+    def hexdigest(self):
+        return ''.join(["{:02x}".format(byte) for byte in bytearray(self.digest())])
 
     def F(self, x, y, z):
         """XY v not(X) Z"""
@@ -95,11 +119,14 @@ class MD5:
         return self.H0 + self.H1 + self.H2 + self.H3
 
 
-
 if __name__ == '__main__':
     import hashlib
-    content="Wikipedia, l'encyclopedie libre et gratuite"
+
+    content = "Wikipedia, l'encyclopedie libre et gratuite"
+    c = ''
     print("La phrase qui va être hach : " + content)
     print("Avec la méthode de python : " + str(hashlib.md5(content.encode()).hexdigest()))
-    m = MD5()
-    print("Avec ma méthode : " + str(m.md5(content)))
+    for char in content:
+        c += bin(ord(char))
+    m = MD5(c)
+    print("Avec ma méthode : " + str(m.hexdigest()))
