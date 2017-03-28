@@ -1,5 +1,5 @@
-import Cryptographie.NombrePremier.largeprime as lg
-import Cryptographie.NombrePremier.outils_arithmethique as oa
+from Cryptographie.NombrePremier.largeprime import genlargenb
+from Cryptographie.NombrePremier.outils_arithmethique import pgcd
 
 
 def lu(p):
@@ -7,10 +7,24 @@ def lu(p):
     for i in p:
         l += i
     l += 1
-    u = lg.genlargenb(5)
-    while oa.pgcd(l, u) != 1:
-        u = lg.genlargenb(5)
+    u = genlargenb(5)
+    while pgcd(l, u) != 1:
+        u = genlargenb(5)
     return (l, u)
+
+
+def calculV(u, l):
+    v = genlargenb(5)
+    while (u * v) % l != 1:
+        v = genlargenb(5)
+    return v
+
+
+def clefChiffrement(p, u, l):
+    b = []
+    for i in p:
+        b.append((u * i) % l)
+    return b
 
 
 if __name__ == '__main__':
@@ -18,3 +32,5 @@ if __name__ == '__main__':
     p = [2, 3, 6, 15, 40, 100, 215, 570]
     # Travail préliminaire d'Alice
     (l, u) = lu(p)
+    v = calculV(u, l)
+    b = clefChiffrement(p, u, l)
