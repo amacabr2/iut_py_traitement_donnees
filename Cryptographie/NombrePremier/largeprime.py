@@ -31,7 +31,7 @@ def rabinMiller(n):
                     return False
                 else:
                     i += 1
-                    v = (v ** 2) % n
+                    v = pow(v, 2, n)
         k += 2
     return True
 
@@ -55,7 +55,7 @@ def genlargenb(n):
     b = a * 10
     g = random.randint(a, b)
     ld = g % 10
-    while (ld == 2 or ld == 5 or ld == 6 or ld == 8 or ld == 4 or ld == 0):
+    while ld == 2 or ld == 5 or ld == 6 or ld == 8 or ld == 4 or ld == 0:
         g -= 1
         ld = g % 10
 
@@ -63,13 +63,13 @@ def genlargenb(n):
 
 
 def genererUnNombrePremier(n):
-    # k est le nombre de chiffre
-    nbEssai = 100 * (math.log(n, 2) + 1)  # nombre maximum d essai
+    # n est le nombre de chiffre
+    nbEssai = int(10 * (math.log(n, 2) + 1))  # nombre maximum d essai
     r_ = nbEssai
     while nbEssai > 0:
         nb = genlargenb(n)
         nbEssai -= 1
-        if estPremier(nb) == True:
+        if estPremier(nb):
             return nb
     return "Echec apres " + repr(r_)
 
