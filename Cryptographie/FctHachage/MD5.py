@@ -108,7 +108,8 @@ class MD5:
                 temp = d
                 d = c
                 c = b
-                b = ((a + f + self.K[i] + block[g]) * self.rotationLeft(self.R[i] + b))
+                print(f)
+                b = self.rotationLeft((int(a) + int(f) + int(self.K[i]) + int(block[g])), self.R[i] + b)
                 a = temp
 
             self.H0 += a
