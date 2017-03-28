@@ -1,4 +1,5 @@
 class SHA1:
+
     def __init__(self):
         """Initialise H"""
         self.H = [
@@ -43,7 +44,7 @@ class SHA1:
         M = []
         content = bytearray(content)
 
-        # IL faut 64 bits par blocks
+        # Il faut 64 bits par blocks
         for i in range(len(content) // 64):
             m = []
             # 16 mots par blocks
@@ -105,12 +106,14 @@ class SHA1:
     def update(self, content):
         """Fonction intermédiaire"""
         content = self.padding(content)
+        print(content)
         content = self.gereM(content)
 
         for block in content:
             self.traiteBlock(block)
 
     def hexdigest(self):
+        """Ajoute des 0 tant qu'il le faut"""
         s = ''
         for h in self.H:
             s += (hex(h)[2:]).rjust(8, '0')
