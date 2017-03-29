@@ -27,11 +27,14 @@ def calculAouB(g, ab, p):
 
 def calculA(b, A):
     """Bob connaît b, et a reçu A, elle aura donc A^b=g^(ab)"""
-
+    print("b=" + str(b))
+    print("A=" + str(A))
 
 
 def calculB(a, B):
     """Alice connaît a, et a reçu B, elle aura donc B^a=g^(ab)"""
+    print("a=" + str(a))
+    print("B=" + str(B))
 
 
 if __name__ == '__main__':
