@@ -15,7 +15,7 @@ def facteur(n):
 
 def pg():
     p = lg.genererUnNombrePremier(2)
-    g = None
+    g = 0
     phiP = p - 1
     facteurs = list(facteur(phiP))
     racinePrimitive = True
@@ -27,7 +27,7 @@ def pg():
         if racinePrimitive:
             g = m
             break
-    return (p, g)
+    return p, g
 
 
 def calculAouB(p, g):
