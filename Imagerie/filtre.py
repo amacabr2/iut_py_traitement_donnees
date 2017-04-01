@@ -36,6 +36,7 @@ def augmentation_contraste(x):
 
 
 def mise_en_val_color(x):
+    """Permet de mettre en valeur soi la couleur verte, soi la couleur roue soi la couleur bleu"""
     return x + 100
 
 
@@ -57,7 +58,7 @@ def choix():
         print("\t - mise en valeur du rouge (6)")
         print("\t - mise en valeur du vert (7)")
         print("\t - mise en valeur du bleu (8)")
-        print("\t - mise en valeur du bleu (9)")
+        print("\t - noir et blanc (9)")
         choix = int(input("Alors ton choix : "))
         if choix >= 0 and choix <= 9:
             return choix
