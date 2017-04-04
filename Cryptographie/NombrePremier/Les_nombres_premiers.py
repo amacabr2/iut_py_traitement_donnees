@@ -19,6 +19,11 @@ def cribleDEratosthene(n):
 
 
 def nbPremiersJumeaux(nbPremiers):
+    """
+    Recherche, dans la liste obtenue, les nombres premiers jumeaux
+    :param nbPremiers:
+    :return:
+    """
     lNbPremiersJumeaux = []
     i = 0
     for j in range(1, len(nbPremiers)):
@@ -34,6 +39,11 @@ RESET = "\033[0m"
 
 
 def colorArith(nbPremiers):
+    """
+    Dans l'affichage de la liste des nombres premiers, mettez en couleurs les nombres premiers faisant partie d'une progression arithmétique d'au moins trois termes (une couleur par progression).
+    :param nbPremiers:
+    :return:
+    """
     tabStringPremiers = []
     rangColor = 0
     i = 0

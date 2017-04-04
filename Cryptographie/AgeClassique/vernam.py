@@ -6,6 +6,7 @@ from random import randint
 
 
 def xor(caractere, entier):
+    """Mise en place le chiffrement de Vernam, pour des textes binaires"""
     if caractere == str(entier):
         return "0"
     else:

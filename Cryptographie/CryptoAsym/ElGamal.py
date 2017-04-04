@@ -18,10 +18,15 @@ def facteur(n):
 
 
 def pg():
+    """
+    Alice trouve p et g, respectivement un nombre premier et une racine primitive modulo p.
+    """
     p = lg.genererUnNombrePremier(2)
     g = 0
     phiP = p - 1
+    print(phiP)
     facteurs = list(facteur(phiP))
+    print(facteurs)
     racinePrimitive = True
     for m in facteurs:
         for i in facteurs:
@@ -40,6 +45,7 @@ def calculAouB(p, g):
 
 
 def cles(p, g, a):
+    """Génération des clés"""
     return ((p, g, pow(g, a, p)), a)
 
 

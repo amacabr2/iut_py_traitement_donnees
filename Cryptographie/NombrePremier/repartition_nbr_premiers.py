@@ -7,6 +7,7 @@ from math import sqrt
 
 
 def cell(n, x, y, start=1):
+    """Détermine la valeur des cellules"""
     d, y, x = 0, y - n // 2, x - (n - 1) // 2
     l = 2 * max(abs(x), abs(y))
     d = (l * 3 + x + y) if y >= x else (l - x - y)
@@ -14,6 +15,7 @@ def cell(n, x, y, start=1):
 
 
 def show_spiral(n, symbol='# ', start=1, space=None):
+    """Dessine la spirale"""
     top = start + n * n + 1
     is_prime = [False, False, True] + [True, False] * (top // 2)
     for x in range(3, 1 + int(sqrt(top))):
