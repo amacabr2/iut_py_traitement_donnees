@@ -1,3 +1,7 @@
+"""
+Auteur: Anthony MACABREY S4A1
+"""
+
 import struct
 
 

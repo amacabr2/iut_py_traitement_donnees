@@ -1,3 +1,7 @@
+"""
+Auteur: Anthony MACABREY S4A1
+"""
+
 from math import sqrt, log
 from Cryptographie.NombrePremier.largeprime import estPremier, PREMIERNBRPREMIER
 from Cryptographie.NombrePremier.testProbabilite import testPrimaliteFermat, testPrimaliteMillerRabin

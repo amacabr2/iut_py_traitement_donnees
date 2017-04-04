@@ -1,3 +1,7 @@
+"""
+Auteur: Florent MARTIN S4A1
+"""
+
 from Cryptographie.AgeClassique.chiffrement_subtitution import ALPHABET
 from Cryptographie.EnfanceDeLArt.Le_carre_de_25 import stringToCharTab, charTabtoString
 

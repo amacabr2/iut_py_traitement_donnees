@@ -1,3 +1,7 @@
+"""
+Auteur: Florent MARTIN S4A1
+"""
+
 def pgcd(a, b):
     """Calcul lePGCD"""
     if a % b == 0:

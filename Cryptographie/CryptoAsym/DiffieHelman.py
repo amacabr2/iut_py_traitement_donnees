@@ -1,3 +1,7 @@
+"""
+Auteur: Anthony MACABREY S4A1
+"""
+
 from Cryptographie.NombrePremier.largeprime import genererUnNombrePremier, estPremier
 from math import sqrt
 import random

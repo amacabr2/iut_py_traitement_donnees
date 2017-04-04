@@ -1,3 +1,7 @@
+"""
+Auteur: Florent MARTIN S4A1
+"""
+
 from math import sqrt
 
 

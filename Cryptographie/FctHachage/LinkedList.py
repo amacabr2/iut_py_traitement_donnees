@@ -1,6 +1,9 @@
-class LinkedList:
-    """Cette classe a été trouvé sur le net"""
+"""
+Auteur: Cette classe a été trouvé sur le net
+"""
 
+
+class LinkedList:
     def __init__(self, root):
         self.root = root
         self.tail = root

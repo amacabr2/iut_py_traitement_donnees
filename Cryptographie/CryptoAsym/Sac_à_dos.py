@@ -1,3 +1,7 @@
+"""
+Auteur: Florent MARTIN S4A1
+"""
+
 from Cryptographie.NombrePremier.largeprime import genlargenb
 from Cryptographie.NombrePremier.outils_arithmethique import pgcd
 

@@ -1,3 +1,7 @@
+"""
+Auteur: Anthony MACABREY S4A1
+"""
+
 from __future__ import print_function, division
 from math import sqrt
 

@@ -1,3 +1,7 @@
+"""
+Auteurs: Florent MARTIN, Anthony MACBREY S4A1
+"""
+
 import random
 import math
 import sys

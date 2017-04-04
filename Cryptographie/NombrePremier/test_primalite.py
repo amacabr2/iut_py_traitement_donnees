@@ -1,3 +1,7 @@
+"""
+Auteur: Florent MARTIN S4A1
+"""
+
 from Cryptographie.NombrePremier.Les_nombres_premiers import cribleDEratosthene
 import time
 

@@ -1,3 +1,7 @@
+"""
+Auteur: Anthony MACABREY S4A1
+"""
+
 from Cryptographie.EnfanceDeLArt.Le_carre_de_25 import stringToCharTab, FREQUENCE_APPARITION_LETTRES_FR
 
 
