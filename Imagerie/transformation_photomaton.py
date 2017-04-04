@@ -1,3 +1,7 @@
+"""
+Auteur: Anthony MACABREY S4A1
+"""
+
 import numpy as np
 import pylab as P
 from PIL import Image, ImageDraw
